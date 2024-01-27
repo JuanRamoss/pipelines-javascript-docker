@@ -26,12 +26,12 @@
         #dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         #tags: |
           #$(tag)
-#pool: linux
+pool: linux
 
-#container: ubuntu:18.04
+container: ubuntu:18.04
 
-#steps:
-#- script: printenv
+steps:
+- script: printenv
 #pool: Default
 
 #strategy:
@@ -48,12 +48,12 @@
 #steps:
 #- script: printenv
 
-container:
-  image: registry:ubuntu1804
-  endpoint: private_dockerhub_connection
+#container:
+#  image: registry:ubuntu1804
+#  endpoint: private_dockerhub_connection
 
-steps:
-- script: echo hello
+#steps:
+#- script: echo hello
 
 #container:
 #  image: ubuntu:18.04
