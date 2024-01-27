@@ -28,7 +28,7 @@
           #$(tag)
 pool: Default
 
-container: ubuntu:18.04
+container: mcr.microsoft.com/windows/servercore:ltsc2022
 
 steps:
-- script: printenv
+- script: set
