@@ -26,9 +26,9 @@
         #dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         #tags: |
           #$(tag)
-pool: Default
+pool: linux
 
-container: mcr.microsoft.com/windows/servercore:ltsc2022
+container: ubuntu:18.04
 
 steps:
-- script: set
+- script: printenv
