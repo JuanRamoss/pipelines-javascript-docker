@@ -32,21 +32,21 @@
 
 #steps:
 #- script: printenv
-pool: Default
+#pool: Default
 
-strategy:
-  matrix:
-    ubuntu16:
-      containerImage: ubuntu:16.04
-    ubuntu18:
-      containerImage: ubuntu:18.04
-    ubuntu20:
-      containerImage: ubuntu:20.04
+#strategy:
+#  matrix:
+#    ubuntu16:
+#      containerImage: ubuntu:16.04
+#    ubuntu18:
+#      containerImage: ubuntu:18.04
+#    ubuntu20:
+#      containerImage: ubuntu:20.04
 
-container: $[ variables['containerImage'] ]
+#container: $[ variables['containerImage'] ]
 
-steps:
-- script: printenv
+#steps:
+#- script: printenv
 
 container:
   image: registry:ubuntu1804
@@ -55,38 +55,38 @@ container:
 steps:
 - script: echo hello
 
-container:
-  image: ubuntu:18.04
-  options: --hostname container-test --ip 192.168.0.1
+#container:
+#  image: ubuntu:18.04
+#  options: --hostname container-test --ip 192.168.0.1
 
-steps:
-- script: echo hello
-resources:
-  containers:
-  - container: u16
-    image: ubuntu:16.04
+#steps:
+#- script: echo hello
+#resources:
+#  containers:
+#  - container: u16
+#    image: ubuntu:16.04
 
-  - container: u18
-    image: ubuntu:18.04
+#  - container: u18
+#    image: ubuntu:18.04
 
-  - container: u20
-    image: ubuntu:20.04
+#  - container: u20
+#    image: ubuntu:20.04
 
-jobs:
-- job: RunInContainer
-  pool:
-    vmImage: 'ubuntu-latest'
+#jobs:
+#- job: RunInContainer
+#  pool:
+#    vmImage: 'ubuntu-latest'
 
-  strategy:
-    matrix:
-      ubuntu16:
-        containerResource: u16
-      ubuntu18:
-        containerResource: u18
-      ubuntu20:
-        containerResource: u20
+#  strategy:
+#    matrix:
+#      ubuntu16:
+#        containerResource: u16
+#      ubuntu18:
+#        containerResource: u18
+#      ubuntu20:
+#        containerResource: u20
 
-  container: $[ variables['containerResource'] ]
+#  container: $[ variables['containerResource'] ]
 
-  steps:
-  - script: printenv
+#  steps:
+#  - script: printenv
