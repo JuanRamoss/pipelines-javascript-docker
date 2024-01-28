@@ -1,6 +1,6 @@
-container:
-  image: registry:ubuntu1804
-  endpoint: private_dockerhub_connection
+pool: linux
+
+container: ubuntu:18.04
 
 steps:
-- script: echo hello
+- script: printenv
