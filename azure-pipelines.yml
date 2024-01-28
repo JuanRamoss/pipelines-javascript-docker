@@ -1,15 +1,28 @@
-pool: linux
+resources:
+  containers:
+  - container: u16
+    image: ubuntu:16.04
 
-strategy:
-  matrix:
-    ubuntu16:
-      containerImage: ubuntu:16.04
-    ubuntu18:
-      containerImage: ubuntu:18.04
-    ubuntu20:
-      containerImage: ubuntu:20.04
+  - container: u18
+    image: ubuntu:18.04
 
-container: $[ variables['containerImage'] ]
+  - container: u20
+    image: ubuntu:20.04
 
-steps:
-- script: printenv
+jobs:
+- job: RunInContainer
+  pool: linux
+
+  strategy:
+    matrix:
+      ubuntu16:
+        containerResource: u16
+      ubuntu18:
+        containerResource: u18
+      ubuntu20:
+        containerResource: u20
+
+  container: $[ variables['containerResource'] ]
+
+  steps:
+  - script: printenv
