@@ -1,15 +1,6 @@
-pool: linux
-
-strategy:
-  matrix:
-    ubuntu16:
-      containerImage: ubuntu:16.04
-    ubuntu18:
-      containerImage: ubuntu:18.04
-    ubuntu20:
-      containerImage: ubuntu:20.04
-
-container: $[ variables['containerImage'] ]
+container:
+  image: registry:ubuntu1804
+  endpoint: private_dockerhub_connection
 
 steps:
-- script: printenv
+- script: echo hello
