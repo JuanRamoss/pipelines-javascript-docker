@@ -1,5 +1,5 @@
 container:
-  image: registry:ubuntu1804
+  image: registry:linux
   endpoint: private_dockerhub_connection
 
 steps:
